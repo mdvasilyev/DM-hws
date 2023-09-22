@@ -1,0 +1,387 @@
+%! suppress = Makeatletter
+%! suppress = TooLargeSection
+%! suppress = MissingLabel
+\documentclass{article}
+
+% Fields
+\usepackage{geometry}
+\geometry{top=25mm}
+\geometry{bottom=35mm}
+\geometry{left=20mm}
+\geometry{right=20mm}
+% ------------------------------------------------
+
+% Graphics
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{blkarray}
+\usepackage{graphicx}
+% ------------------------------------------------
+
+% Math
+\usepackage{amsmath, amsfonts}
+\usepackage{amssymb}
+\usepackage{proof}
+\usepackage{mathrsfs}
+% Crossed-out symbols
+% https://tex.stackexchange.com/questions/75525/how-to-write-crossed-out-math-in-latex
+\usepackage[makeroom]{cancel}
+\usepackage{mathtools}
+% ------------------------------------------------
+
+% Additional font sizes
+% https://www.overleaf.com/learn/latex/Questions/How_do_I_adjust_the_font_size%3F
+\usepackage{moresize}
+% Additional colors
+% https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
+\usepackage{xcolor}
+% \texttimes
+\usepackage{textcomp}
+% ------------------------------------------------
+
+% Language
+\usepackage[utf8] {inputenc}
+\usepackage[T2A] {fontenc}
+\usepackage[english, russian] {babel}
+\usepackage{indentfirst, verbatim}
+\usetikzlibrary{cd, babel}
+% ------------------------------------------------
+
+% Fonts
+\usepackage{stmaryrd}
+\usepackage{cmbright}
+\usepackage{wasysym}
+% ------------------------------------------------
+
+% Code
+% https://tex.stackexchange.com/questions/99475/how-to-invoke-latex-with-the-shell-escape-flag-in-texstudio-former-texmakerx
+% Colored, requires --shell-escape compiling option
+% \usepackage{minted}
+% \setminted{xleftmargin=\parindent, autogobble, escapeinside=\#\#}
+\usepackage{listings}
+% ------------------------------------------------
+
+% Custom envs
+% https://tex.stackexchange.com/questions/371286/draw-a-horizontal-line-in-latex
+\newenvironment{proof}{\subparagraph{\hspace{-1em}Решение:\newline}}{\par\noindent\rule{\textwidth}{0.4pt}}
+% ------------------------------------------------
+
+% Custom commands
+\newcommand{\comb}[1]{\mathbf{#1}}
+\newcommand{\step}{\rightsquigarrow}
+\newcommand{\term}[1]{\mathbf{#1}}
+\newcommand{\ap}{~}
+\newcommand{\termdef}{\coloneqq}
+\newcommand{\subst}[3]{\left[#2 \mapsto #3 \right] #1}
+\newcommand{\eqbeta}{=_\beta}
+\newcommand{\eqeta}{=_\eta}
+% ------------------------------------------------
+
+% Head
+\usepackage{fancybox,fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\fancyhead[R]{Максим Васильев (285800)} % TODO введите ваше имя
+\fancyhead[L]{ИТМО MSE, ДМ 2023, Дз 1}
+% ------------------------------------------------
+
+% Numbering
+% https://tex.stackexchange.com/questions/80113/hide-section-numbers-but-keep-numbering
+\makeatletter
+\renewcommand\thesubsection{Блок \@arabic\c@subsection.\hspace{-0.8em}}
+\renewcommand\thesubsubsection{Задание \@arabic\c@subsection.\@arabic\c@subsubsection\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/327689/numbering-subsubsections-with-letters
+\renewcommand\theparagraph{\alph{paragraph})\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/129208/numbering-paragraphs-in-latex
+\setcounter{secnumdepth}{4}
+\makeatother
+% ------------------------------------------------
+
+\begin{document}
+
+    \begin{enumerate}
+        \item \textit{(1 балл)} В алфавите племени Дюжина ровно 12 букв. Словом в этом языке является любая последовательность не более чем из 6 букв, в которой любые две соседние буквы различны. Сколько слов в языке племени?
+        
+        \textbf{Решение}:
+
+        Если $A$ -- алфавит племени Дюжина, то по условию задачи
+        \begin{equation}
+            |A| = 12.            
+        \end{equation}
+        Слов из одной буквы:
+        \begin{equation}
+            12.
+        \end{equation}
+        Слов из двух букв:
+        \begin{equation}
+            12\cdot 11.
+        \end{equation}
+        Слов из трех букв:
+        \begin{equation}
+            12\cdot 11\cdot 12.
+        \end{equation}
+        Слов из четырех букв:
+        \begin{equation}
+            12\cdot 11\cdot 12\cdot 11.
+        \end{equation}
+        Слов из пяти букв:
+        \begin{equation}
+            12\cdot 11\cdot 12\cdot 11\cdot 12.
+        \end{equation}
+        Слов из шести букв:
+        \begin{equation}
+            12\cdot 11\cdot 12\cdot 11\cdot 12\cdot 11.
+        \end{equation}
+
+        \textbf{Ответ}:
+        $$12 + (12\cdot11) + (12\cdot11\cdot12) + (12\cdot11\cdot12\cdot11) + (12\cdot 11\cdot 12\cdot 11\cdot 12) + (12\cdot 11\cdot 12\cdot 11\cdot 12\cdot 11)$$
+
+
+        \item \textit{(1 балл)} Шесть друзей купили абонементы в фитнес-клуб. В их абонементы входит возможность посещения групповых занятий по плаванию, боксу, йоге и кроссфиту (можно записаться хоть во все четыре группы)? Каким количеством способов друзья могут выбрать себе занятия, если известно, что каждый из них записался хотя бы в одну группу?.
+        
+        \textbf{Решение}:
+
+        
+
+        \item \textit{(1 балл)} Внутри единичного куба расположены 100 точек. Докажите, что найдется
+        4 точки, таких, что объем порожденного ими тетраэдра не превосходит 1/99.
+
+        \textbf{Решение}:
+
+        $\square$
+
+        Разобьем исходный куб со сторонами $1 x 1 x 1$ на 27 кубиков, каждый которых со сторонами $\frac{1}{3} x \frac{1}{3} x \frac{1}{3}$. Так как $100 / 27 \simeq 3.7$, то по принципу Дирихле, можно заключить, что в одном из маленьких кубиков будут попадать хотя бы 4 точки.
+
+        Объем тетраэдра вычисляется как произведение трети площади основания на высоту:
+        \begin{equation}
+            V = \frac{1}{3}\cdot S\cdot h.
+        \end{equation}
+        Имея куб объема $1/27$, можно получить из него тетраэдр максимального объема, равного $1/6$ от $1/27$. Посмотрим, как этого можно достичь. Если взять высоту в качестве ребра куба $h=1/3$, а площадь -- половину площади основания $S=1/2\cdot(1/3)^2$, то объем максимального тетраэдра будет равен:
+        \begin{equation}
+            V = \frac{1}{3}\cdot S\cdot h = \frac{1}{3}\cdot \frac{1}{2}\cdot\left(\frac{1}{3}\right)^2\cdot \frac{1}{3} = \frac{1}{162} < \frac{1}{99}.
+        \end{equation}
+        Таким образом, в единичном кубе со 100 точками найдется 4 точки, таких, что объем порожденного ими тетраэдра не превосходит $1/99$.
+
+        \begin{flushright}
+            $\blacksquare$
+        \end{flushright}
+
+        \item \textit{(1,5 балла)} Докажите, что в любой выборке из 52 положительных целых чисел найдутся хотя бы два, у которых либо их сумма, либо их разность делится на 100.
+        
+        \textbf{Решение}:
+
+        $\square$
+
+        При делении на 100 можно получить сто остатков от деления: $0, 1, \ldots, 99$. Разобьем их на следующие множества в количестве 51:
+        $$\{0\}, \{50\}, \{1, 99\}, \{2, 98\}, \{3, 97\}, \ldots \{49, 51\}.$$
+        Имея 52 числа, по принципу Дирихле можно заключить, что в одно множество попадет хотя бы два числа из данных 52. Рассмотрим первое $\{0\}$ и второе $\{50\}$ множества: если какие-то два числа $n_1$ и $n_2$ попадают в одно из этих множеств, то, что их разность, что их сумма тоже будут делиться на 100. Если два числа попадут в любое из множеств $\{1, 99\}, \{2, 98\}, \{3, 97\}, \ldots \{49, 51\}$, то возможны несколько случаев: если два числа $n_1$ и $n_2$ будут иметь одинаковый (в рамках коробки) остаток от деления на 100, то их разность будет делиться на 100; если два числа $n_1$ и $n_2$ будут иметь разные (в рамках коробки) остатки от деления на 100, то их сумма будет делиться на 100, потому что коробки так устроены, что в сумме они дают как раз 100.
+        \begin{flushright}
+            $\blacksquare$
+        \end{flushright}
+
+        \item \textit{(2,5 балла)} Футбольная команда за сезон отыграла 30 матчей и забила соперникам в совокупности 53 гола. Известно, что в каждой игре команда забивала хотя бы один гол. Докажите, что существует непрерывная последовательность игр, в течении которой команда забила ровно шесть голов.
+        
+        \textbf{Решение}:
+
+        $\square$
+
+        Рассмотрим последовательности по 6 игр.
+        \begin{center}
+            \begin{tikzpicture}
+                \foreach \x in {0,0.25,0.5,0.75,1,1.25}
+                    \filldraw[red, draw=black] (\x,0) rectangle (\x+0.25,0.25);
+                \foreach \x in {0,0.25,0.5,0.75,1,1.25}
+                    \filldraw[orange, draw=black] (1.5+\x,0) rectangle (\x+1.75,0.25);
+                \foreach \x in {0,0.25,0.5,0.75,1,1.25}
+                    \filldraw[yellow, draw=black] (3.0+\x,0) rectangle (\x+3.25,0.25);
+                \foreach \x in {0,0.25,0.5,0.75,1,1.25}
+                    \filldraw[green, draw=black] (4.5+\x,0) rectangle (\x+4.75,0.25);
+                \foreach \x in {0,0.25,0.5,0.75,1,1.25}
+                    \filldraw[blue, draw=black] (6.0+\x,0) rectangle (\x+6.25,0.25);
+            \end{tikzpicture}
+    
+            \textit{Рисунок 2 -- Пять последовательностей по 6 игр}
+        \end{center}
+        По условию задачи, в каждой такой последовательности как минимум 6 голов (так как в каждой игре как минимум 1 гол). По принципу Дирихле, найдется последовательность, в которой не более
+        \begin{equation}
+            \left\lfloor\frac{53}{5}\right\rfloor = 10
+        \end{equation}
+        голов. В таком случае, мы имеем следующие варианты:
+        \begin{enumerate}
+            \item В последовательности 6 голов.\label{a}
+            \item В последовательности 7 голов.\label{b}
+            \item В последовательности 8 голов.\label{c}
+            \item В последовательности 9 голов.\label{d}
+            \item В последовательности 10 голов.\label{e}
+        \end{enumerate}
+        В случае (\ref{a}) присутствуют 6 единиц, они и образуют непрерывную последовательность игр, в течении которой команда забила ровно 6 голов.
+
+        В случае (\ref{b}) присутствуют 5 единиц и 1 двойка. Можно понять, что при любом расположении одной двойки среди пяти единиц, всегда можно составить последовательность из чисел, сумма которой будет равна 6. Делается это следующим образом: берём двойку и добавляем к ней с любой стороны единицы до тех пор пока в сумме не будет 6. Такая последовательность и образует непрерывную последовательность игр, в течении которой команда забила ровно 6 голов.
+
+        В случае (\ref{c}) возможны такие исходы: 5 единиц и 1 тройка; 4 единицы и 2 двойки. В случае 1 тройки и 5 единиц все просто: будем использовать стратегию из~(\ref{b}), только теперь необходимо будет взять 3 единицы $\Rightarrow$ искомая последовательность найдена. В случае 2 двоек и 4 единиц можно рассмотреть все варианты (с учетом того, что двойки и единицы неразличимы):
+        \begin{equation}
+            2,2,1,1,1,1 \quad 2,1,2,1,1,1 \quad 2,1,1,2,1,1 \quad 2,1,1,1,2,1\quad 2,1,1,1,1,2.
+        \end{equation}
+        Видно, что всегда можно найти непрерывную последовательность чисел, сумма которых равна 6 $\Rightarrow$ искомая последовательность найдена.
+
+        В случае (\ref{d}) возможны такие исходы: 5 единиц и 1 четверка; 4 единицы, 1 тройка и 1 двойка; 3 единицы и 3 двойки. В случае 1 четверки и 5 единиц искомую последовательность найти легко аналогично стратегии из (\ref{b}). В случае 1 тройки, 1 двойки и 4 единиц, можно рассмотреть случаи (с учетом того, что единицы не различимы):
+        \begin{itemize}
+            \item Тройка стоит на первом или шестом месте $\Rightarrow$ двойка всегда образует искомую последовательность с оставшимися 4 единицами.
+            \item Тройка стоит на втором или пятом месте, тогда во всех случаях можно образовать искомую последовательность:
+            \begin{equation}
+                2,3,1,1,1,1 \quad 1,3,2,1,1,1 \quad 1,3,1,2,1,1 \quad 1,3,1,1,2,1 \quad 1,3,1,1,1,2.
+            \end{equation}
+            \item Тройка стоит на третьем или четвертом месте, тогда во всех случаях можно образовать искомую последовательность:
+            \begin{equation}
+                2,1,3,1,1,1 \quad 1,2,3,1,1,1 \quad 1,1,3,2,1,1 \quad 1,1,3,1,2,1 \quad 1,1,3,1,1,2.
+            \end{equation}
+        \end{itemize}
+
+        В случае (\ref{e}) возможны такие исходы: 5 единиц и 1 пятерка; 4 единицы, 1 четверка и 1 двойка; 4 единицы и 2 тройки; 3 единицы, 2 двойки и 1 тройка; 2 единицы и 4 двойки. Если 5 единиц и 1 пятерка, то стратегия из~(\ref{b}) $\Rightarrow$ искомая последовательность найдена. Если 4 единицы, 1 четверка и 1 двойка, то при неразличимых единицах:
+        \begin{itemize}
+            \item Четверка на первом или шестом месте:
+            \begin{equation}
+                4,2,1,1,1,1 \quad 4,1,2,1,1,1 \quad 4,1,1,2,1,1 \quad 4,1,1,1,2,1 \quad 4,1,1,1,1,2.
+            \end{equation}
+            \item Четверка на втором или пятом месте:
+            \begin{equation}
+                2,4,1,1,1,1 \quad 1,4,2,1,1,1 \quad 1,4,1,2,1,1 \quad 1,4,1,1,2,1 \quad 1,4,1,1,1,2.
+            \end{equation}
+            \item Четверка на третьем или четвертом месте:
+            \begin{equation}
+                2,1,4,1,1,1 \quad 1,2,4,1,1,1 \quad 1,1,4,2,1,1 \quad 1,1,4,1,2,1 \quad 1,1,4,1,1,2.
+            \end{equation}
+        \end{itemize}
+        В каждом из приведенных случаев искомая последовательность присутствует. Если 4 единицы и 2 тройки, то при неразличимых единицах и тройках:
+        \begin{equation}
+            3,3,1,1,1,1 \quad 3,1,3,1,1,1 \quad 3,1,1,3,1,1 \quad 3,1,1,1,3,1 \quad 3,1,1,1,1,3,
+        \end{equation}
+        искомая последовательность всегда есть. Если 3 единицы, 2 двойки и 1 тройка:
+        \begin{itemize}
+            \item Тройка на первом или шестом месте:
+            \begin{equation}
+                \begin{cases}
+                    3,2,2,1,1,1 \quad 3,2,1,2,1,1 \quad 3,2,1,1,2,1 \quad 3,2,1,1,1,2 \quad 3,1,2,2,1,1 \\ 3,1,2,1,2,1 \quad 3,1,2,1,1,2 \quad 3,1,1,2,2,1 \quad 3,1,1,2,1,2 \quad 3,1,1,1,2,2
+                \end{cases}
+            \end{equation}
+            \item Тройка на втором или пятом месте:
+            \begin{equation}
+                \begin{cases}
+                    2,3,2,1,1,1 \quad 2,3,1,2,1,1 \quad 2,3,1,1,2,1 \quad 2,3,1,1,1,2 \quad 1,3,2,2,1,1 \\ 1,3,2,1,2,1 \quad 1,3,2,1,1,2 \quad 1,3,1,2,2,1 \quad 1,3,1,2,1,2 \quad 1,3,1,1,2,2
+                \end{cases}
+            \end{equation}
+            \item Тройка на третьем или четвертом месте:
+            \begin{equation}
+                \begin{cases}
+                    2,2,3,1,1,1 \quad 2,1,3,2,1,1 \quad 2,1,3,1,2,1 \quad 2,1,3,1,1,2 \quad 1,2,3,2,1,1 \\ 1,2,3,1,2,1 \quad 1,2,3,1,1,2 \quad 1,1,3,2,2,1 \quad 1,1,3,2,1,2 \quad 1,1,3,1,2,2
+                \end{cases}
+            \end{equation}
+        \end{itemize}
+        В каждом из приведенных случаев искомая последовательность присутствует. Если 2 единицы и 4 двойки, то при неразличимых двойках и единицах:
+        \begin{equation}
+            \begin{cases}
+                1,1,2,2,2,2 \quad 1,2,1,2,2,2 \quad 1,2,2,1,2,2 \quad 1,2,2,2,1,2 \quad 1,2,2,2,2,1 \\ 2,1,1,2,2,2 \quad 2,1,2,1,2,2 \quad 2,1,2,2,1,2 \quad 2,1,2,2,2,1 \quad 2,2,1,1,2,2
+            \end{cases}
+        \end{equation}
+        В каждом из приведенных случаев искомая последовательность присутствует. Таким образом, были рассмотрены все возможные варианты последовательностей. Выходит, что если в 30 матчах было забито 53 гола, в каждом из матчей хотя бы 1 гол, то, действительно, существует непрерывная последовательность игр, в течение которой команда забила ровно шесть голов.
+
+        \begin{flushright}
+            $\blacksquare$
+        \end{flushright}
+
+        \item \textit{(1 балл)} (Неравенство Бернулли) Докажите, что $(1+a)^n\geq1+na$ для любого вещественного $a>-1$ и для любого натурального $n$.
+        
+        \textbf{Решение}:
+
+        $\square$
+
+        \textit{База индукции}:
+        
+        $n=1$: 
+        \begin{equation}
+            (1+a)^1=1+1\cdot a.
+        \end{equation}
+
+        \textit{Индукционный переход}: $k\mapsto(k+1)$
+
+        Предполагаем, что для $n=k$ неравенство верно. Рассмотрим $n=k+1$:
+        \begin{equation}
+            (1+a)^{n+1}=(1+a)^n(1+a)\geq(1+na)(1+a)=1+a+na+na^2=1+(n+1)a+na^2.
+        \end{equation}
+        Учитывая, что $n\geq1$ и $a^2\geq0$, можно сделать вывод, что $na^2\geq0$. Тогда
+        \begin{equation}
+            (1+a)^{n+1}\geq1+(n+1)a+na^2\geq1+(n+1)a.
+        \end{equation}
+
+        \begin{flushright}
+            $\blacksquare$
+        \end{flushright}
+
+        \item \textit{(2 балла)} На какое максимальное число частей могут разрезать плоскость $n$ прямых?
+        
+        \textbf{Решение}:
+
+        Посмотрим на несколько первых частных случаев, когда прямые пересекаются так, чтобы образовать максимальное количество частей:
+        \begin{center}
+        \begin{tikzpicture}
+            \begin{scope}
+                \node at (1,-0.25) {$n=1$};
+                \draw (0,0) rectangle (2,2);
+                \draw (1,0) -- (1,2);
+            \end{scope}
+            \begin{scope}[xshift=3cm]
+                \node at (1,-0.25) {$n=2$};
+                \draw (0,0) rectangle (2,2);
+                \draw (1,0) -- (1,2);
+                \draw (0.9,0) -- (1.1,2);
+            \end{scope}
+            \begin{scope}[xshift=6cm]
+                \node at (1,-0.25) {$n=3$};
+                \draw (0,0) rectangle (2,2);
+                \draw (1,0) -- (1,2);
+                \draw (0.9,0) -- (1.1,2);
+                \draw (0.7,0) -- (1.6,2);
+            \end{scope}
+            \begin{scope}[xshift=9cm]
+                \node at (1,-0.25) {$n=4$};
+                \draw (0,0) rectangle (2,2);
+                \draw (1,0) -- (1,2);
+                \draw (0.9,0) -- (1.1,2);
+                \draw (0.7,0) -- (1.6,2);
+                \draw (0.5,0) -- (2,1.5);
+            \end{scope}
+        \end{tikzpicture}
+        \end{center}
+
+        Чтобы получать максимальное количество частей, на которые делится плоскость, нужно очередной прямой ($k$-ая по счету) пересекать $k-1$ прямую так, чтобы в каждой точке плоскости не пересекалось больше двух прямых. При таком подходе очередная $k$-ая прямая будет делить каждую из $k-1$ областей на две  и добавлять $k$ областей.
+
+        Пусть $n(k)$ -- максимальное количество частей, на которые $k$ прямых делят плоскость. Тогда можно получить следующую закономерность:
+        \begin{eqnarray}
+            n\,(1) &=& 2, \\
+            n\,(2) &=& 4, \\
+            n\,(3) &=& 7, \\
+            n\,(4) &=& 11.
+        \end{eqnarray}
+
+        Можно получить рекуррентную формулу:
+        \begin{equation}\label{recurr}
+            \begin{cases}
+                n\,(k) = n\,(k-1)+k, \\
+                n\,(1) = 2, \\
+                k = 2, 3, \ldots
+            \end{cases}
+        \end{equation}
+
+        Формулу (\ref{recurr}) можно привести к виду:
+        \begin{eqnarray}
+            n\,(k) &=& 2 + (2 + 3 + 4 + \ldots + k), \\
+            n\,(k) &=& 2 + \frac{(2 + k)(k - 1)}{2} = \frac{2k-2+k^2-k+4}{2}=1+\frac{k(k+1)}{2}.
+        \end{eqnarray}
+
+        \textbf{Ответ}:
+        $n\,(k) = 1 + \frac{k(k+1)}{2}$
+
+    \end{enumerate}
+
+\end{document}
