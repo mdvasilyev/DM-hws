@@ -76,6 +76,7 @@
 \newcommand{\subst}[3]{\left[#2 \mapsto #3 \right] #1}
 \newcommand{\eqbeta}{=_\beta}
 \newcommand{\eqeta}{=_\eta}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
 % ------------------------------------------------
 
 % Head
@@ -120,7 +121,36 @@
         \binom{n}{m} \cdot \binom{m}{k} = \binom{n}{k} \cdot \binom{n - k}{m - k}.
       \end{equation}
     \end{itemize}
-    
+    \begin{flushright}
+      $\blacksquare$
+    \end{flushright}
+    \item \textit{(1 балл)} Докажите комбинаторно следующее тождество:
+    $$\multiset{n + 1}{k} = \sum_{i = 0}^{k} \multiset{n}{k - i}.$$
+    \textbf{Решение}:
+
+    Представим, что мы купили куртку, в которой $n + 1$ карман. Цель покупки такой куртки -- отправиться в школу, взяв с собой $k$ карандашей из ИКЕИ, разложенных по карманам. Карманы мы можем различать, а карандаши из ИКЕИ, очевидно, нет. В каждый карман можем положить от 0 до $k$ карандашей. Как мы можем уйти в школу?
+    \begin{itemize}
+      \item Разложить $k$ неразличимых карандашей в $n + 1$ карман, причем любой карман может вместить от 0 до $k$ карандашей:
+      \begin{equation}
+        \multiset{n + 1}{k}.
+      \end{equation}
+      \item Зафиксировать один карман, который ближе всего к сердцу и положить в него все $k$ карандашей, тогда на оставшиеся $n$ карманов останется 0 карандашей, а вариантов разместить 0 карандашей по $n$ карманам:
+      \begin{equation}
+        \multiset{n}{0}.
+      \end{equation}
+      Но есть еще варианты. Положим в карман, который ближе к сердцу $k-1$ карандаш, тогда на оставшиеся $n$ карманов придется распределить 1 карандаш. Или положим в карман, который ближе к сердцу $k-2$ карандаша, тогда на оставшиеся $n$ карманов придется распределить 2 карандаша. И так далее. Всего получится:
+      \begin{equation}
+        \multiset{n}{0} + \multiset{n}{1} + \ldots + \multiset{n}{k} = \sum_{i = 0}^{k} \multiset{n}{k - i}.
+      \end{equation}
+    \end{itemize}
+    Так как исход в обоих подходах одинаковый, можно сделать вывод, что
+    \begin{equation}
+      \multiset{n + 1}{k} = \sum_{i = 0}^{k} \multiset{n}{k - i}.
+    \end{equation}
+
+    \begin{flushright}
+      $\blacksquare$
+    \end{flushright}
     
       
   \end{enumerate}
