@@ -100,10 +100,29 @@
 
 \begin{document}
 
-    \begin{enumerate}
-        \item 
-        
-        
-    \end{enumerate}
+  \begin{enumerate}
+    \item \textit{(1 балл)} Докажите комбинаторно, что для всех целых $n \geq m \geq k \geq 0$ справедливо равенство
+    $$\binom{n}{m} \cdot \binom{m}{k} = \binom{n}{k} \cdot \binom{n - k}{m - k}.$$
+    \textbf{Решение}:
+
+    Предположим, что у нас имеется $n$ коробок, на которые мы хотим наклеить $m$ открыток. После наклеивания открыток мы хотим положить в них $k$ подарков по одному в каждую коробку. При этом должно выполняться условие $n \geq m \geq k \geq 0$. Как мы можем это сделать?
+    \begin{itemize}
+      \item Выбрать $m$ коробок из $n$, на которые мы наклеим по открытке, а потом выбрать $k$ коробок из $m$ (на которых есть по открытке), куда мы положим подарки:
+      \begin{equation}
+        \binom{n}{m} \cdot \binom{m}{k}.
+      \end{equation}
+      \item Также мы могли бы сначала выбрать $k$ коробок из $n$ возможных, куда бы мы положили по подарку и наклеили по открытке, а потом на оставшиеся $n-k$ коробок без открыток наклеили бы оставшиеся $m-k$ открыток:
+      \begin{equation}
+        \binom{n}{k} \cdot \binom{n - k}{m - k}.
+      \end{equation}
+      Так как исход в обоих случаях одинаковый, можно сделать вывод, что
+      \begin{equation}
+        \binom{n}{m} \cdot \binom{m}{k} = \binom{n}{k} \cdot \binom{n - k}{m - k}.
+      \end{equation}
+    \end{itemize}
+    
+    
+      
+  \end{enumerate}
 
 \end{document}
