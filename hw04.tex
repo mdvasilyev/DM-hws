@@ -172,9 +172,26 @@
 
     \textbf{Решение}:
 
+    Такое число Стирлинга можно удовлетворить двумя ситуациями:
+    \begin{itemize}
+        \item Из n выбрать тройку и поместить эту тройку в один ящик, остальные заполняются по одному элементу:
+        \begin{equation}
+            \binom{n}{3} = \frac{n \cdot (n-1) \cdot (n-2)}{6}.
+        \end{equation}
+        \item Из n выбрать двойку и поместить эту двойку в один ящик, а потом из $n-2$ выбрать еще одну двойку и поместить ее в другой ящик, остальные заполняются автоматически. Так как нам не важен порядок этих пар, то нужно поделить на число перестановок:
+        \begin{equation}
+            \frac{1}{2!}\binom{n}{2}\binom{n-2}{2} = \frac{1}{2}\cdot\frac{n \cdot (n-1)}{2} \cdot \frac{(n-2) \cdot (n-3)}{2} = \frac{n \cdot (n-1)\cdot(n-2) \cdot (n-3)}{8}.
+        \end{equation}
+    \end{itemize}
+    Так как ситации ?независимы?, то результат представляет собой сумму вариантов:
+    \begin{equation}
+        S(n,3) = \binom{n}{3} + \frac{1}{2!}\binom{n}{2}\binom{n-2}{2} = n \cdot (n-1) \cdot (n-2) \cdot \left(\frac{n-3}{8} + \frac{1}{6}\right) = \frac{n(n-1)(n-2)(3n-5)}{24}.
+    \end{equation}
 
 
-    \textbf{Ответ}:
+    \begin{flushright}
+        $\blacksquare$
+    \end{flushright}
 
     
     \item \textit{(1,5 балла)} Докажите (\textit{не пользуясь формулой для $\hat{S}(n,k)$}), что числа Стирлинга $S(n,3)$ рассчитываются по формуле:
@@ -182,16 +199,6 @@
 
     
     \textbf{Решение}:
-
-    % По формуле:
-    % \begin{equation}
-    %     S(n, k) = S(n - 1, k - 1) + k \cdot S(n - 1, k)
-    % \end{equation}
-    % делаем вывод, что
-    % \begin{equation}
-    %     S(n, 3) = S(n - 1, 2) + 2 \cdot S(n - 1, 3).
-    % \end{equation}
-
 
     Всего вариантов разложить n предметов по 3 ящикам:
     \begin{equation}
