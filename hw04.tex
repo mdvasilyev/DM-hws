@@ -1,0 +1,124 @@
+%! suppress = Makeatletter
+%! suppress = TooLargeSection
+%! suppress = MissingLabel
+\documentclass{article}
+
+% Fields
+\usepackage{geometry}
+\geometry{top=25mm}
+\geometry{bottom=35mm}
+\geometry{left=20mm}
+\geometry{right=20mm}
+% ------------------------------------------------
+
+% Graphics
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{blkarray}
+\usepackage{graphicx}
+% ------------------------------------------------
+
+% Math
+\usepackage{amsmath, amsfonts}
+\usepackage{amssymb}
+\usepackage{proof}
+\usepackage{mathrsfs}
+% Crossed-out symbols
+% https://tex.stackexchange.com/questions/75525/how-to-write-crossed-out-math-in-latex
+\usepackage[makeroom]{cancel}
+\usepackage{mathtools}
+% ------------------------------------------------
+
+% Additional font sizes
+% https://www.overleaf.com/learn/latex/Questions/How_do_I_adjust_the_font_size%3F
+\usepackage{moresize}
+% Additional colors
+% https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
+\usepackage{xcolor}
+% \texttimes
+\usepackage{textcomp}
+% ------------------------------------------------
+
+% Language
+\usepackage[utf8] {inputenc}
+\usepackage[T2A] {fontenc}
+\usepackage[english, russian] {babel}
+\usepackage{indentfirst, verbatim}
+\usetikzlibrary{cd, babel}
+% ------------------------------------------------
+
+% Fonts
+\usepackage{stmaryrd}
+\usepackage{cmbright}
+\usepackage{wasysym}
+% ------------------------------------------------
+
+% Code
+% https://tex.stackexchange.com/questions/99475/how-to-invoke-latex-with-the-shell-escape-flag-in-texstudio-former-texmakerx
+% Colored, requires --shell-escape compiling option
+% \usepackage{minted}
+% \setminted{xleftmargin=\parindent, autogobble, escapeinside=\#\#}
+\usepackage{listings}
+% ------------------------------------------------
+
+% Custom envs
+% https://tex.stackexchange.com/questions/371286/draw-a-horizontal-line-in-latex
+\newenvironment{proof}{\subparagraph{\hspace{-1em}Решение:\newline}}{\par\noindent\rule{\textwidth}{0.4pt}}
+% ------------------------------------------------
+
+% Custom commands
+\newcommand{\comb}[1]{\mathbf{#1}}
+\newcommand{\step}{\rightsquigarrow}
+\newcommand{\term}[1]{\mathbf{#1}}
+\newcommand{\ap}{~}
+\newcommand{\termdef}{\coloneqq}
+\newcommand{\subst}[3]{\left[#2 \mapsto #3 \right] #1}
+\newcommand{\eqbeta}{=_\beta}
+\newcommand{\eqeta}{=_\eta}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+% ------------------------------------------------
+
+% Head
+\usepackage{fancybox,fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\fancyhead[R]{Максим Васильев (285800)} % TODO введите ваше имя
+\fancyhead[L]{ИТМО MSE, ДМ 2023, Дз 4}
+% ------------------------------------------------
+
+% Numbering
+% https://tex.stackexchange.com/questions/80113/hide-section-numbers-but-keep-numbering
+\makeatletter
+\renewcommand\thesubsection{Блок \@arabic\c@subsection.\hspace{-0.8em}}
+\renewcommand\thesubsubsection{Задание \@arabic\c@subsection.\@arabic\c@subsubsection\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/327689/numbering-subsubsections-with-letters
+\renewcommand\theparagraph{\alph{paragraph})\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/129208/numbering-paragraphs-in-latex
+\setcounter{secnumdepth}{4}
+\makeatother
+% ------------------------------------------------
+
+\begin{document}
+
+\begin{enumerate}
+
+    \item \textit{(1 балл)} Команда из четырех участников одержала победу на математическом турнире. В подарок участники команды получили 7 различных книг. Сколькими способами ребята могут разделить эти книги между собой так, чтобы каждому досталась хотя бы одна книга? (\textit{Ответ найти численно.})
+    
+    \item \textit{(1,5 балла)} Найти сумму четырехзначных чисел, которые можно получить при всевозможных перестановках цифр 1, 5, 9, 9.
+    
+    \item \textit{(1,5 балла)} Чему равно количество способов, которыми тренер может разделить 28 мальчиков на 4 команды по 7 человек?
+    
+    \item \textit{(1,5 балла)} Докажите, что числа Стирлинга $S(n,n-2)$ рассчитываются по формуле:
+    $$S(n,n-2)=\frac{n(n-1)(n-2)(3n-5)}{24}.$$
+    
+    \item \textit{(1,5 балла)} Докажите (\textit{не пользуясь формулой для $\hat{S}(n,k)$}), что числа Стирлинга $S(n,3)$ рассчитываются по формуле:
+    $$S(n,3)=\frac{3^n-3(2^n-2)-3}{6}.$$
+    
+    \item \textit{(2 балла)} Докажите, что для всех $n\geq3$ числа Белла $B(n)<n!$.
+    
+    \item \textit{(3 балла)} Обозначим через $F(n)$ количество разбиений $n$-множества без блоков единичной длины. Докажите, что $B(n) = F(n) + F(n+1)$.
+    
+    \end{enumerate}
+
+\end{document}
