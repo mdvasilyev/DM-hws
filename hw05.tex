@@ -133,33 +133,33 @@
 
     Запишем характеристическое уравнение:
     \begin{equation}
-      \lambda^2 + 6\lambda + 9 = (\lambda + 3)^2 = 0
+      \lambda^2 + 6\lambda + 9 = (\lambda + 3)^2 = 0.
     \end{equation}
-    Здесь один кратный корень ($-3$) второй степени и общее решение строится как
+    Здесь один кратный корень ($-3$), поэтому общее решение строится как
     \begin{equation}
       a_n = C_1 \cdot (-3)^n + C_2 \cdot n \cdot (-3)^n.
     \end{equation}
     Подставим начальные условия:
     \begin{equation}
       \begin{cases}
-        0 = a_0 = C_1 \\
-        6 = a_1 = C_1 \cdot (-3) + C_2 \cdot (-3)
+        2 = a_0 = C_1, \\
+        6 = a_1 = C_1 \cdot (-3) + C_2 \cdot (-3).
       \end{cases}
     \end{equation}
     Из системы получаем, что
     \begin{equation}
       \begin{cases}
-        C_1 = 0 \\
-        C_2 = -2
+        C_1 = 2, \\
+        C_2 = -4.
       \end{cases}
     \end{equation}
     Тогда общее решение:
     \begin{equation}
-      a_n = -2 \cdot n \cdot (-3)^n
+      a_n = 2 \cdot (-3)^n - 4 \cdot n \cdot (-3)^n = (2 - 4n)\cdot (-3)^n.
     \end{equation}
 
     \textbf{Ответ}:
-    $a_n = -2 \cdot n \cdot (-3)^n.$
+    $a_n = (2 - 4n)\cdot (-3)^n.$
     
     б) $a_{n+2} = 2\sqrt{2}a_{n+1} - 4a_n, a_0 = 1, a_1 = 2.$
 
@@ -167,13 +167,13 @@
 
     Запишем характеристическое уравнение:
     \begin{equation}
-      \lambda^2 - 2\sqrt{2} \lambda + 4 = 0
+      \lambda^2 - 2\sqrt{2} \lambda + 4 = 0.
     \end{equation}
     Корни:
     \begin{equation}
       \lambda = \begin{cases}
-        \sqrt{2} (1-i) \\
-        \sqrt{2} (1+i)
+        \sqrt{2} (1-i), \\
+        \sqrt{2} (1+i).
       \end{cases}
     \end{equation}
     Тогда общее решение строится как:
@@ -182,29 +182,29 @@
     \end{equation}
     Сведем к тригонометрическим функциям (тут будет угол $\pi/4$):
     \begin{equation}
-      a_n = 2^n \cdot \left(C_1 \cos \frac{\pi n}{4} + C_2 \sin \frac{\pi n}{4}\right)
+      a_n = 2^n \cdot \left(C_1 \cos \frac{\pi n}{4} + C_2 \sin \frac{\pi n}{4}\right).
     \end{equation}
     Подставим начальные условия:
     \begin{equation}
       \begin{cases}
-        1 = a_0 = C_1 \\
-        2 = a_1 = 2 \cdot (C_1 \cdot \sqrt{2}/2 + C_2 \cdot \sqrt{2}/2) = (C_1 \cdot \sqrt{2} + C_2 \cdot \sqrt{2})
+        1 = a_0 = C_1, \\
+        2 = a_1 = 2 \cdot (C_1 \cdot \sqrt{2}/2 + C_2 \cdot \sqrt{2}/2) = (C_1 \cdot \sqrt{2} + C_2 \cdot \sqrt{2}).
       \end{cases}
     \end{equation}
     Из системы получаем, что
     \begin{equation}
       \begin{cases}
-        C_1 = 1 \\
-        C_2 = \frac{1}{\sqrt{2}} - 1
+        C_1 = 1, \\
+        C_2 = \sqrt{2} - 1.
       \end{cases}
     \end{equation}
     Тогда общее решение:
     \begin{equation}
-      a_n = 2^n \cdot \left(\cos \frac{\pi n}{4} + \left(\frac{1}{\sqrt{2}} - 1\right) \sin \frac{\pi n}{4}\right)
+      a_n = 2^n \cdot \left(\cos \frac{\pi n}{4} + \left(\sqrt{2} - 1\right) \sin \frac{\pi n}{4}\right).
     \end{equation}
 
     \textbf{Ответ}:
-    $a_n = 2^n \cdot \left(\cos \frac{\pi n}{4} + \left(\frac{1}{\sqrt{2}} - 1\right) \sin \frac{\pi n}{4}\right)$
+    $a_n = 2^n \cdot \left(\cos \frac{\pi n}{4} + \left(\sqrt{2} - 1\right) \sin \frac{\pi n}{4}\right).$
 
     \item \textit{(1,5 балла)} Постройте общее решение неоднородного рекуррентного соотношения второго порядка:
     $$a_{n+2} = 5a_{n+1} - 6a_n + 3 \cdot 2^n.$$
@@ -217,8 +217,8 @@
       Корни:
       \begin{equation}
         \lambda = \begin{cases}
-          2 \\
-          3
+          2, \\
+          3.
         \end{cases}
       \end{equation}
       Тогда решение однородного:
@@ -227,28 +227,28 @@
       \end{equation}
       \item Найдем частное решение в виде:
       \begin{equation}
-        a_n^{part} = C \cdot n \cdot 2^n
+        a_n^{part} = C \cdot n \cdot 2^n.
       \end{equation}
       Тогда
       \begin{eqnarray}
-        C \cdot (n+2) \cdot 2^{n+2} = 5(C \cdot (n+1) \cdot 2^{n+1}) - 6\cdot (C \cdot n \cdot 2^n) + 3 \cdot 2^n \\
-        C \cdot (n+2) \cdot 2^{2} = 5(C \cdot (n+1) \cdot 2) - 6\cdot (C \cdot n) + 3 \\
-        4C \cdot n + 8C = 10C \cdot n + 10C - 6C \cdot n + 3 \\
-        8C = 10C + 3 \\
-        C = -3/2
+        C \cdot (n+2) \cdot 2^{n+2} = 5(C \cdot (n+1) \cdot 2^{n+1}) - 6\cdot (C \cdot n \cdot 2^n) + 3 \cdot 2^n, \\
+        C \cdot (n+2) \cdot 2^{2} = 5(C \cdot (n+1) \cdot 2) - 6\cdot (C \cdot n) + 3, \\
+        4C \cdot n + 8C = 10C \cdot n + 10C - 6C \cdot n + 3, \\
+        8C = 10C + 3, \\
+        C = -3/2.
       \end{eqnarray}
       Тогда
       \begin{equation}
-        a_n^{part} = -3 \cdot n \cdot 2^{n-1}
+        a_n^{part} = -3 \cdot n \cdot 2^{n-1}.
       \end{equation}
       \item Получим общее решение неоднородного:
       \begin{equation}
-        a_n^{gen} = a_n^{hom} + a_n^{part} = C_1 \cdot 2^n + C_2 \cdot 3^n - 3 \cdot n \cdot 2^{n-1}
+        a_n^{gen} = a_n^{hom} + a_n^{part} = C_1 \cdot 2^n + C_2 \cdot 3^n - 3 \cdot n \cdot 2^{n-1}.
       \end{equation}
     \end{itemize}
 
     \textbf{Ответ}:
-    $a_n^{gen} = C_1 \cdot 2^n + C_2 \cdot 3^n - 3 \cdot n \cdot 2^{n-1}$
+    $a_n^{gen} = C_1 \cdot 2^n + C_2 \cdot 3^n - 3 \cdot n \cdot 2^{n-1}.$
 
     % \item \textit{(1 балл)} Ира положила тысячу рублей в банк под четыре процента годовых. В начале каждого года она докладывает восемьсот рублей на счет. Сколько денег будет на счете через n лет?
   \end{enumerate}
