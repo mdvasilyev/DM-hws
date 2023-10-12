@@ -104,7 +104,27 @@
   \begin{enumerate}
     \item \textit{(0,5 балла)} Найдите общее решение линейного однородного рекуррентного соотношения второго порядка:
     $$a_{n+2} = -3 a_{n+1} + 10 a_n$$
+    \textbf{Решение}:
     
+    Запишем характеристическое уравнение:
+    \begin{equation}
+      \lambda^2 + 3\lambda - 10 = 0
+    \end{equation}
+    Корни:
+    \begin{equation}
+      \lambda = \begin{cases}
+        -5 \\
+        2
+      \end{cases}
+    \end{equation}
+    Тогда общее решение строится как:
+    \begin{equation}
+      a_n = C_1 \cdot (-5)^n + C_2 \cdot 2^n.
+    \end{equation}
+
+    \textbf{Ответ}:
+    $a_n = C_1 \cdot (-5)^n + C_2 \cdot 2^n.$
+
     \item \textit{(а) 1 балл; (б) 2 балла} Решите следующие линейные однородные рекуррентные соотношения второго порядка:
     а) $a_{n+2} = -6a_{n+1} - 9a_n, a_0 = 2, a_1 = 6;$
     б) $a_{n+2} = 2\sqrt{2}a_{n+1} - 4a_n, a_0 = 1, a_1 = 2.$
