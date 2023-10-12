@@ -207,8 +207,50 @@
     $a_n = 2^n \cdot \left(\cos \frac{\pi n}{4} + \left(\frac{1}{\sqrt{2}} - 1\right) \sin \frac{\pi n}{4}\right)$
 
     \item \textit{(1,5 балла)} Постройте общее решение неоднородного рекуррентного соотношения второго порядка:
-    $$a_{n+2} = 5a_{n+1} - 6a_n + 3 · 2n.$$
-    \item \textit{(1 балл)} Ира положила тысячу рублей в банк под четыре процента годовых. В начале каждого года она докладывает восемьсот рублей на счет. Сколько денег будет на счете через n лет?
+    $$a_{n+2} = 5a_{n+1} - 6a_n + 3 \cdot 2^n.$$
+    \textbf{Решение}:
+    \begin{itemize}
+      \item Сначала найдем решение однородного уравнения. Запишем характеристическое уравнение:
+      \begin{equation}
+        \lambda^2 - 5\lambda + 6 = 0.
+      \end{equation}
+      Корни:
+      \begin{equation}
+        \lambda = \begin{cases}
+          2 \\
+          3
+        \end{cases}
+      \end{equation}
+      Тогда решение однородного:
+      \begin{equation}
+        a_n^{hom} = C_1 \cdot 2^n + C_2 \cdot 3^n.
+      \end{equation}
+      \item Найдем частное решение в виде:
+      \begin{equation}
+        a_n^{part} = C \cdot n \cdot 2^n
+      \end{equation}
+      Тогда
+      \begin{eqnarray}
+        C \cdot (n+2) \cdot 2^{n+2} = 5(C \cdot (n+1) \cdot 2^{n+1}) - 6\cdot (C \cdot n \cdot 2^n) + 3 \cdot 2^n \\
+        C \cdot (n+2) \cdot 2^{2} = 5(C \cdot (n+1) \cdot 2) - 6\cdot (C \cdot n) + 3 \\
+        4C \cdot n + 8C = 10C \cdot n + 10C - 6C \cdot n + 3 \\
+        8C = 10C + 3 \\
+        C = -3/2
+      \end{eqnarray}
+      Тогда
+      \begin{equation}
+        a_n^{part} = -3 \cdot n \cdot 2^{n-1}
+      \end{equation}
+      \item Получим общее решение неоднородного:
+      \begin{equation}
+        a_n^{gen} = a_n^{hom} + a_n^{part} = C_1 \cdot 2^n + C_2 \cdot 3^n - 3 \cdot n \cdot 2^{n-1}
+      \end{equation}
+    \end{itemize}
+
+    \textbf{Ответ}:
+    $a_n^{gen} = C_1 \cdot 2^n + C_2 \cdot 3^n - 3 \cdot n \cdot 2^{n-1}$
+
+    % \item \textit{(1 балл)} Ира положила тысячу рублей в банк под четыре процента годовых. В начале каждого года она докладывает восемьсот рублей на счет. Сколько денег будет на счете через n лет?
   \end{enumerate}
 
 \end{document}
