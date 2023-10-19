@@ -1,0 +1,140 @@
+%! suppress = Makeatletter
+%! suppress = TooLargeSection
+%! suppress = MissingLabel
+\documentclass{article}
+
+% Fields
+\usepackage{geometry}
+\geometry{top=25mm}
+\geometry{bottom=35mm}
+\geometry{left=20mm}
+\geometry{right=20mm}
+% ------------------------------------------------
+
+% Graphics
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{blkarray}
+\usepackage{graphicx}
+% ------------------------------------------------
+
+% Math
+\usepackage{amsmath, amsfonts}
+\usepackage{amssymb}
+\usepackage{proof}
+\usepackage{mathrsfs}
+% Crossed-out symbols
+% https://tex.stackexchange.com/questions/75525/how-to-write-crossed-out-math-in-latex
+\usepackage[makeroom]{cancel}
+\usepackage{mathtools}
+% ------------------------------------------------
+
+% Additional font sizes
+% https://www.overleaf.com/learn/latex/Questions/How_do_I_adjust_the_font_size%3F
+\usepackage{moresize}
+% Additional colors
+% https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
+\usepackage{xcolor}
+% \texttimes
+\usepackage{textcomp}
+% ------------------------------------------------
+
+% Language
+\usepackage[utf8] {inputenc}
+\usepackage[T2A] {fontenc}
+\usepackage[english, russian] {babel}
+\usepackage{indentfirst, verbatim}
+\usetikzlibrary{cd, babel}
+% ------------------------------------------------
+
+% Fonts
+\usepackage{stmaryrd}
+\usepackage{cmbright}
+\usepackage{wasysym}
+% ------------------------------------------------
+
+% Code
+% https://tex.stackexchange.com/questions/99475/how-to-invoke-latex-with-the-shell-escape-flag-in-texstudio-former-texmakerx
+% Colored, requires --shell-escape compiling option
+% \usepackage{minted}
+% \setminted{xleftmargin=\parindent, autogobble, escapeinside=\#\#}
+\usepackage{listings}
+% ------------------------------------------------
+
+% Custom envs
+% https://tex.stackexchange.com/questions/371286/draw-a-horizontal-line-in-latex
+\newenvironment{proof}{\subparagraph{\hspace{-1em}Решение:\newline}}{\par\noindent\rule{\textwidth}{0.4pt}}
+% ------------------------------------------------
+
+% Custom commands
+\newcommand{\comb}[1]{\mathbf{#1}}
+\newcommand{\step}{\rightsquigarrow}
+\newcommand{\term}[1]{\mathbf{#1}}
+\newcommand{\ap}{~}
+\newcommand{\termdef}{\coloneqq}
+\newcommand{\subst}[3]{\left[#2 \mapsto #3 \right] #1}
+\newcommand{\eqbeta}{=_\beta}
+\newcommand{\eqeta}{=_\eta}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+% ------------------------------------------------
+
+% Head
+\usepackage{fancybox,fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\fancyhead[R]{Максим Васильев (285800)} % TODO введите ваше имя
+\fancyhead[L]{ИТМО MSE, ДМ 2023, Дз 5}
+% ------------------------------------------------
+
+% Numbering
+% https://tex.stackexchange.com/questions/80113/hide-section-numbers-but-keep-numbering
+\makeatletter
+\renewcommand\thesubsection{Блок \@arabic\c@subsection.\hspace{-0.8em}}
+\renewcommand\thesubsubsection{Задание \@arabic\c@subsection.\@arabic\c@subsubsection\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/327689/numbering-subsubsections-with-letters
+\renewcommand\theparagraph{\alph{paragraph})\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/129208/numbering-paragraphs-in-latex
+\setcounter{secnumdepth}{4}
+\makeatother
+% ------------------------------------------------
+
+\begin{document}
+
+  \begin{enumerate}
+    \item \textit{(по 0,5 балла за каждый пункт)} Из колоды, в которой 52 карты, наудачу вынимаются какие-то три. Найдите вероятность того, что:
+    \begin{itemize}
+        \item среди них окажется ровно один туз;
+        \item среди них окажется хотя бы один туз;
+        \item это будут тройка, семерка и туз.
+    \end{itemize}
+    \item \textit{(1 балл)} В мешке лежат карточки с буквами А, Б, В, Г, а также с цифрами 1, 2,
+    3, 4, 5, 6 (всего 10 карточек). Их по очереди вынимают из мешка, пока не вынут
+    все. Какова вероятность того, что буквы будут появляться в алфавитном порядке,
+    а цифры — в порядке возрастания? (Расположение букв относительно цифр может
+    быть любым.)
+    \item \textit{(2 балла)} Из стандартной 52–карточной колоды случайно вытаскивают 5 карт. Найдите вероятность того, что эти 5 карт образуют фулл хаус (комбинация, состоящая
+    из трех карт одного номинала и двух другого).
+    \item \textit{(1 балл)} Паша и Слава загадывают по числу от 1 до 10 (все числа для них одинаково
+    хороши и они выбирают их равновероятно). Независимы ли следующие события:
+    A = число Паши делится на 4,
+    B = сумма чисел Паши и Славы делится на 4?
+    \item \textit{(по 0,5 балла за каждый пункт)} Четыре человека Андрей, Борис, Василий и Глеб
+    становятся в очередь в случайном порядке. Найдите
+    \begin{itemize}
+        \item условную вероятность того, что Андрей первый, если Борис последний;
+        \item условную вероятность того, что Андрей первый, если Андрей не последний;
+        \item условную вероятность того, что Андрей первый, если Борис не последний;
+        \item условную вероятность того, что Андрей первый, если Василий стоит в очереди
+        позже Андрея;
+        \item условную вероятность того, что Андрей стоит в очереди раньше Бориса, если
+        известно, что Андрей стоит раньше Глеба.
+    \end{itemize}
+    \item \textit{(1 балл)} Два охотника отправились охотиться на кабанов. Первый из них попадает в
+    цель с вероятностью 0,8, а второй — с вероятностью 0,4. Каждый из них выстрелил
+    в увиденного кабана по разу, а когда они его подобрали, оказалось, что в кабана
+    попала всего лишь одна пуля. Какова вероятность того, что кабана убил первый
+    охотник? Второй охотник?
+  \end{enumerate}
+
+\end{document}
