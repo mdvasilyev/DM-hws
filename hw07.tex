@@ -1,0 +1,126 @@
+%! suppress = Makeatletter
+%! suppress = TooLargeSection
+%! suppress = MissingLabel
+\documentclass{article}
+
+% Fields
+\usepackage{geometry}
+\geometry{top=25mm}
+\geometry{bottom=35mm}
+\geometry{left=20mm}
+\geometry{right=20mm}
+% ------------------------------------------------
+
+% Graphics
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{blkarray}
+\usepackage{graphicx}
+% ------------------------------------------------
+
+% Math
+\usepackage{amsmath, amsfonts}
+\usepackage{amssymb}
+\usepackage{proof}
+\usepackage{mathrsfs}
+% Crossed-out symbols
+% https://tex.stackexchange.com/questions/75525/how-to-write-crossed-out-math-in-latex
+\usepackage[makeroom]{cancel}
+\usepackage{mathtools}
+% ------------------------------------------------
+
+% Additional font sizes
+% https://www.overleaf.com/learn/latex/Questions/How_do_I_adjust_the_font_size%3F
+\usepackage{moresize}
+% Additional colors
+% https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
+\usepackage{xcolor}
+% \texttimes
+\usepackage{textcomp}
+% ------------------------------------------------
+
+% Language
+\usepackage[utf8] {inputenc}
+\usepackage[T2A] {fontenc}
+\usepackage[english, russian] {babel}
+\usepackage{indentfirst, verbatim}
+\usetikzlibrary{cd, babel}
+% ------------------------------------------------
+
+% Fonts
+\usepackage{stmaryrd}
+\usepackage{cmbright}
+\usepackage{wasysym}
+% ------------------------------------------------
+
+% Code
+% https://tex.stackexchange.com/questions/99475/how-to-invoke-latex-with-the-shell-escape-flag-in-texstudio-former-texmakerx
+% Colored, requires --shell-escape compiling option
+% \usepackage{minted}
+% \setminted{xleftmargin=\parindent, autogobble, escapeinside=\#\#}
+\usepackage{listings}
+% ------------------------------------------------
+
+% Custom envs
+% https://tex.stackexchange.com/questions/371286/draw-a-horizontal-line-in-latex
+\newenvironment{proof}{\subparagraph{\hspace{-1em}Решение:\newline}}{\par\noindent\rule{\textwidth}{0.4pt}}
+% ------------------------------------------------
+
+% Custom commands
+\newcommand{\comb}[1]{\mathbf{#1}}
+\newcommand{\step}{\rightsquigarrow}
+\newcommand{\term}[1]{\mathbf{#1}}
+\newcommand{\ap}{~}
+\newcommand{\termdef}{\coloneqq}
+\newcommand{\subst}[3]{\left[#2 \mapsto #3 \right] #1}
+\newcommand{\eqbeta}{=_\beta}
+\newcommand{\eqeta}{=_\eta}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+% ------------------------------------------------
+
+% Head
+\usepackage{fancybox,fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\fancyhead[R]{Максим Васильев (285800)} % TODO введите ваше имя
+\fancyhead[L]{ИТМО MSE, ДМ 2023, Дз 6}
+% ------------------------------------------------
+
+% Numbering
+% https://tex.stackexchange.com/questions/80113/hide-section-numbers-but-keep-numbering
+\makeatletter
+\renewcommand\thesubsection{Блок \@arabic\c@subsection.\hspace{-0.8em}}
+\renewcommand\thesubsubsection{Задание \@arabic\c@subsection.\@arabic\c@subsubsection\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/327689/numbering-subsubsections-with-letters
+\renewcommand\theparagraph{\alph{paragraph})\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/129208/numbering-paragraphs-in-latex
+\setcounter{secnumdepth}{4}
+\makeatother
+% ------------------------------------------------
+
+\begin{document}
+\begin{enumerate}
+
+    \item \textit{(0,5 балла)} Вероятность попадания в цель при одном выстреле равна 0,001. Для поражения цели необходимо не менее двух попаданий. Произведено 5000 выстрелов. Найдите вероятность поражения цели.
+    
+    \item \textit{(1 балл)} (Продолжение задачи Банаха о спичечных коробках). Некто носит с собой два коробка спичек А и Б, в которых первоначально было $M$ и $N$ спичек соответственно. Когда ему нужна спичка, он берет ее из коробка А с вероятностью $p$ или из коробка Б с вероятностью $1-p$. Найдите вероятность того, что когда математик вынет в первый раз пустой коробок, в другом будет $r$ спичек.
+    
+    \item \textit{(по 1 баллу за пункт)}  В схеме Бернулли вероятность успеха равна $p$, а вероятность неудачи $q = 1-p$. Найдите вероятность того, что:\\
+    a) цепочка НН (две неудачи подряд) появится раньше цепочки НУ (неудача и успех подряд);\\
+    b) цепочка НН появится раньше цепочки УН.
+    
+    \item \textit{(1 балл)} Два человека независимо друг от друга подбрасывают монету по $n$ раз каждый. Докажите, что вероятность того, что они наберут одинаковое число гербов, совпадает с вероятностью того, что у них в сумме будет $n$ гербов.
+    
+    \item \textit{(1 балл)} Паша 100 раз кинул мяч в баскетбольное кольцо через всю площадку. Известно, что вероятность попасть таким броском равняется 0,03. Найдите приближенно вероятность того, что Паша попал не менее пяти раз.
+    
+    \item \textit{(1 балл)} Правильный кубик подбрасывают 18 000 раз. Найти приближённо вероятность того, что шестёрка выпадет не менее 2900, но не более 3050 раз.
+    
+    \item \textit{(1,5 балла)} В жюри, состоящем из нечетного числа $n = 2m + 14$ членов, каждый независимо от других принимает правильное решение с вероятностью $p = 0,7$. Каково минимальное число членов жюри, при котором решение, принятое большинством голосов, будет справедливым с вероятностью не меньшей, чем 0,99?
+    
+\end{enumerate}
+
+  
+
+\end{document}
+
