@@ -208,9 +208,9 @@ $$f(x)=
 Функция распределения вычисляется как:
 \begin{equation}
     F(t) = \begin{cases}
-        0, &\text{при } x < 2,\\
-        \int_{2}^{t}(2x-4)dx, &\text{при } 2\leq x\leq3,\\
-        1, &\text{при } x > 3.
+        0, &\text{при } t < 2,\\
+        \int_{2}^{t}(2x-4)dx, &\text{при } 2\leq t\leq3,\\
+        1, &\text{при } t > 3.
     \end{cases}
 \end{equation}
 Посчитаем интеграл:
@@ -220,9 +220,9 @@ $$f(x)=
 Поэтому фукнция распределения:
 \begin{equation}
     F(t) = \begin{cases}
-        0, &\text{при } x < 2,\\
-        (t-2)^2, &\text{при } 2\leq x\leq3,\\
-        1, &\text{при } x > 3.
+        0, &\text{при } t < 2,\\
+        (t-2)^2, &\text{при } 2\leq t\leq3,\\
+        1, &\text{при } t > 3.
     \end{cases}
 \end{equation}
 Вероятность $\mathbb{P}(2.5<X<3.5)$ вычисляется как:
@@ -241,12 +241,70 @@ $$f(x)=
 
 \textbf{Ответ}:
 $F(t) = \begin{cases}
-    0, &\text{при } x < 2,\\
-    (t-2)^2, &\text{при } 2\leq x\leq3,\\
-    1, &\text{при } x > 3.
+    0, &\text{при } t < 2,\\
+    (t-2)^2, &\text{при } 2\leq t\leq3,\\
+    1, &\text{при } t > 3.
 \end{cases} \qquad \mathbb{P}(2.5<X<3.5) = 0.75 \qquad \mathbb{E}X = \dfrac{8}{3} \qquad \mathbb{D}X = \dfrac{1}{18}$
 
 \item \textit{(2 балла)} Есть правильный жетон, у которого на одной стороне стоит цифра 2, а на другой --- 0, и есть правильный кубик, у которого на противоположных гранях написаны цифры 1, 2 и 3 соответственно. Жетон и кубик бросаются на стол. Пусть $X$ --- случайная величина, равная сумме очков на жетоне и кубике. Постройте закон распределения величины $X$ и вычислите $\mathbb{E}X$ и $\mathbb{D}X$.
+
+\textbf{Решение}:
+
+Множества исходов для жетона и кубика:
+\begin{equation}
+    \text{Coin} = \{0, 2\} \qquad \text{Cube} = \{1, 2, 3\}
+\end{equation}
+Возможные значения случайной величины $X$:
+\begin{equation}
+    X = \{1, 2, 3, 4, 5\}
+\end{equation}
+Рассмотрим вероятности:
+\begin{equation}
+    \begin{cases}
+        \mathbb{P}(1) = \frac{1}{2} \cdot \frac{1}{3} = \frac{1}{6} \\
+        \mathbb{P}(2) = \frac{1}{2} \cdot \frac{1}{3} = \frac{1}{6} \\
+        \mathbb{P}(3) = \frac{1}{2} \cdot \frac{1}{3} + \frac{1}{2} \cdot \frac{1}{3} = \frac{1}{3} \\
+        \mathbb{P}(4) = \frac{1}{2} \cdot \frac{1}{3} = \frac{1}{6} \\
+        \mathbb{P}(5) = \frac{1}{2} \cdot \frac{1}{3} = \frac{1}{6}
+    \end{cases}
+\end{equation}
+Все кроме $X=3$ строятся однозначно. Тройку можно получить $\{0, 3\}$ или $\{1, 2\}$. Функция распределения:
+\begin{equation}
+    F(t) = \begin{cases}
+        0, &\text{при } t \in (-\infty, 1),\\
+        1/6, &\text{при } t \in [1, 2),\\
+        2/6, &\text{при } t \in [2, 3),\\
+        4/6, &\text{при } t \in [3, 4),\\
+        5/6, &\text{при } t \in [4, 5),\\
+        1, &\text{при } t \in [5, +\infty).
+    \end{cases}
+\end{equation}
+По определению математическое ожидание:
+\begin{equation}
+    \mathbb{E}X = \sum_{i=1}^{5} x_i \cdot p_i = 1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6} + 3 \cdot \frac{2}{6} + 4 \cdot \frac{1}{6} + 5 \cdot \frac{1}{6} = \frac{1+2+6+4+5}{6} = 3.
+\end{equation}
+По определению дисперсия:
+\begin{equation}
+    \mathbb{D}X = \mathbb{E}X^2 - (\mathbb{E}X)^2.
+\end{equation}
+Вычислим $\mathbb{E}X^2$ с учетом того, что вероятность квадрата случайной величины $X$ совпадает с вероятностью самой случайной величины $X$:
+\begin{equation}
+    \mathbb{E}X^2 = \sum_{i=1}^{5} x_i^2 \cdot p_i = 1 \cdot \frac{1}{6} + 4 \cdot \frac{1}{6} + 9 \cdot \frac{2}{6} + 16 \cdot \frac{1}{6} + 25 \cdot \frac{1}{6} = \frac{1+4+18+16+25}{6} = \frac{32}{3}
+\end{equation}
+Тогда дисперсия:
+\begin{equation}
+    \mathbb{D}X = \mathbb{E}X^2 - (\mathbb{E}X)^2 = \frac{32}{3} - 9 = \frac{5}{3}.
+\end{equation}
+
+\textbf{Ответ}:
+$F(t) = \begin{cases}
+    0, &\text{при } t \in (-\infty, 1),\\
+    1/6, &\text{при } t \in [1, 2),\\
+    2/6, &\text{при } t \in [2, 3),\\
+    4/6, &\text{при } t \in [3, 4),\\
+    5/6, &\text{при } t \in [4, 5),\\
+    1, &\text{при } t \in [5, +\infty).
+\end{cases} \qquad \mathbb{E}X = 3 \qquad \mathbb{D}X = \frac{5}{3}$
 
 % \item \textit{(2 балла)} Случайная величина X имеет плотность распределения $f_X(x)=e^{-x}$, $x\geq0$. Какое распределение у случайной величины $Y=1-e^{-X}$.
 
