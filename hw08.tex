@@ -141,6 +141,30 @@
 
 \item \textit{(0,5 балла)} Вычислите математическое ожидание и дисперсию величины $X$, равной числу выпавших очков на игральной кости.
 
+\textbf{Решение}:
+
+Считаем, что кубик честный и вероятность выпадение каждого значения одинаковая и равна $1/6$.
+
+По определению математическое ожидание:
+\begin{equation}
+    \mathbb{E}X = \sum_{i=1}^{6} x_i \cdot p_i = p \sum_{i=1}^{6} i = 1/6 \cdot 21 = 7/2.
+\end{equation}
+По определению дисперсия:
+\begin{equation}
+    \mathbb{D}X = \mathbb{E}(X-\mathbb{E}X)^2 = \mathbb{E}X^2 - (\mathbb{E}X)^2.
+\end{equation}
+Для этого посчитаем $\mathbb{E}X^2$ с учетом того, что вероятность выбить квадрат такая же, как и само число:
+\begin{equation}
+    \mathbb{E}X^2 = \sum_{i=1}^{6} (x_i)^2 \cdot p_i = p \sum_{i=1}^{6} i^2 = 1/6 \cdot 91 = 91/6.
+\end{equation}
+Тогда дисперсия:
+\begin{equation}
+    \mathbb{D}X = \mathbb{E}X^2 - (\mathbb{E}X)^2 = 91/6 - (21/6)^2 = 35/12.
+\end{equation}
+
+\textbf{Ответ}:
+$\mathbb{E}X = 7/2; \quad \mathbb{D}X = 35/12$
+
 \item \textit{(1 балл)} Случайная величина $X$ имеет плотность распределения вида
 $$f(x)=
 \begin{cases}
