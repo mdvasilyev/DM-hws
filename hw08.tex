@@ -1,0 +1,132 @@
+%! suppress = Makeatletter
+%! suppress = TooLargeSection
+%! suppress = MissingLabel
+\documentclass{article}
+
+% Fields
+\usepackage{geometry}
+\geometry{top=25mm}
+\geometry{bottom=35mm}
+\geometry{left=20mm}
+\geometry{right=20mm}
+% ------------------------------------------------
+
+% Graphics
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{blkarray}
+\usepackage{graphicx}
+% ------------------------------------------------
+
+% Math
+\usepackage{amsmath, amsfonts}
+\usepackage{amssymb}
+\usepackage{proof}
+\usepackage{mathrsfs}
+% Crossed-out symbols
+% https://tex.stackexchange.com/questions/75525/how-to-write-crossed-out-math-in-latex
+\usepackage[makeroom]{cancel}
+\usepackage{mathtools}
+% ------------------------------------------------
+
+% Additional font sizes
+% https://www.overleaf.com/learn/latex/Questions/How_do_I_adjust_the_font_size%3F
+\usepackage{moresize}
+% Additional colors
+% https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
+\usepackage{xcolor}
+% \texttimes
+\usepackage{textcomp}
+% ------------------------------------------------
+
+% Language
+\usepackage[utf8] {inputenc}
+\usepackage[T2A] {fontenc}
+\usepackage[english, russian] {babel}
+\usepackage{indentfirst, verbatim}
+\usetikzlibrary{cd, babel}
+% ------------------------------------------------
+
+% Fonts
+\usepackage{stmaryrd}
+\usepackage{cmbright}
+\usepackage{wasysym}
+% ------------------------------------------------
+
+% Code
+% https://tex.stackexchange.com/questions/99475/how-to-invoke-latex-with-the-shell-escape-flag-in-texstudio-former-texmakerx
+% Colored, requires --shell-escape compiling option
+% \usepackage{minted}
+% \setminted{xleftmargin=\parindent, autogobble, escapeinside=\#\#}
+\usepackage{listings}
+% ------------------------------------------------
+
+% Custom envs
+% https://tex.stackexchange.com/questions/371286/draw-a-horizontal-line-in-latex
+\newenvironment{proof}{\subparagraph{\hspace{-1em}Решение:\newline}}{\par\noindent\rule{\textwidth}{0.4pt}}
+% ------------------------------------------------
+
+% Custom commands
+\newcommand{\comb}[1]{\mathbf{#1}}
+\newcommand{\step}{\rightsquigarrow}
+\newcommand{\term}[1]{\mathbf{#1}}
+\newcommand{\ap}{~}
+\newcommand{\termdef}{\coloneqq}
+\newcommand{\subst}[3]{\left[#2 \mapsto #3 \right] #1}
+\newcommand{\eqbeta}{=_\beta}
+\newcommand{\eqeta}{=_\eta}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+% ------------------------------------------------
+
+% Head
+\usepackage{fancybox,fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\fancyhead[R]{Максим Васильев (285800)} % TODO введите ваше имя
+\fancyhead[L]{ИТМО MSE, ДМ 2023, Дз 8}
+% ------------------------------------------------
+
+% Numbering
+% https://tex.stackexchange.com/questions/80113/hide-section-numbers-but-keep-numbering
+\makeatletter
+\renewcommand\thesubsection{Блок \@arabic\c@subsection.\hspace{-0.8em}}
+\renewcommand\thesubsubsection{Задание \@arabic\c@subsection.\@arabic\c@subsubsection\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/327689/numbering-subsubsections-with-letters
+\renewcommand\theparagraph{\alph{paragraph})\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/129208/numbering-paragraphs-in-latex
+\setcounter{secnumdepth}{4}
+\makeatother
+% ------------------------------------------------
+
+\begin{document}
+\begin{enumerate}
+
+\item \textit{(0,5 балла)} Найдите функцию распределения числа попаданий мячом в баскетбольную корзину при трех бросках, если вероятность попадания каждый раз равна 0,8. 
+
+\item \textit{(0,5 балла)} Вычислите математическое ожидание и дисперсию величины $X$, равной числу выпавших очков на игральной кости.
+
+\item \textit{(1 балл)} Случайная величина $X$ имеет плотность распределения вида
+$$f(x)=
+\begin{cases}
+   a(x-1)^2, &\text{при } 1\leq x\leq5,\\
+   0, &\text{иначе}.
+ \end{cases}$$
+Вычислите константу $a$ и определите вероятность того, что $3\leq X<4$.
+
+\item \textit{(2 балла)} Случайная величина $X$ задается плотностью распределения
+$$f(x)=
+\begin{cases}
+   2x-4, &\text{при } 2\leq x\leq3,\\
+   0, &\text{иначе}.
+ \end{cases}$$
+Вычислите функцию распределения $F(x)$, вероятность $\mathbb{P}(2.5<X<3.5)$, $\mathbb{E}X$ и $\mathbb{D}X$.
+
+\item \textit{(2 балла)} Есть правильный жетон, у которого на одной стороне стоит цифра 2, а на другой --- 0, и есть правильный кубик, у которого на противоположных гранях написаны цифры 1, 2 и 3 соответственно. Жетон и кубик бросаются на стол. Пусть $X$ --- случайная величина, равная сумме очков на жетоне и кубике. Постройте закон распределения величины $X$ и вычислите $\mathbb{E}X$ и $\mathbb{D}X$.
+
+% \item \textit{(2 балла)} Случайная величина X имеет плотность распределения $f_X(x)=e^{-x}$, $x\geq0$. Какое распределение у случайной величины $Y=1-e^{-X}$.
+
+% \item \textit{(3 балла)} Пусть $X$ --- случайная величина, у которой функция распределения $F$ непрерывна и строго возрастает. Какое распределение имеет случайная величина $Y = F(X)$?
+
+\end{enumerate}
+\end{document}
