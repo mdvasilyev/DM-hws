@@ -1,0 +1,119 @@
+%! suppress = Makeatletter
+%! suppress = TooLargeSection
+%! suppress = MissingLabel
+\documentclass{article}
+
+% Fields
+\usepackage{geometry}
+\geometry{top=25mm}
+\geometry{bottom=35mm}
+\geometry{left=20mm}
+\geometry{right=20mm}
+% ------------------------------------------------
+
+% Graphics
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{blkarray}
+\usepackage{graphicx}
+% ------------------------------------------------
+
+% Math
+\usepackage{amsmath, amsfonts}
+\usepackage{amssymb}
+\usepackage{proof}
+\usepackage{mathrsfs}
+% Crossed-out symbols
+% https://tex.stackexchange.com/questions/75525/how-to-write-crossed-out-math-in-latex
+\usepackage[makeroom]{cancel}
+\usepackage{mathtools}
+% ------------------------------------------------
+
+% Additional font sizes
+% https://www.overleaf.com/learn/latex/Questions/How_do_I_adjust_the_font_size%3F
+\usepackage{moresize}
+% Additional colors
+% https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
+\usepackage{xcolor}
+% \texttimes
+\usepackage{textcomp}
+% ------------------------------------------------
+
+% Language
+\usepackage[utf8] {inputenc}
+\usepackage[T2A] {fontenc}
+\usepackage[english, russian] {babel}
+\usepackage{indentfirst, verbatim}
+\usetikzlibrary{cd, babel}
+% ------------------------------------------------
+
+% Fonts
+\usepackage{stmaryrd}
+\usepackage{cmbright}
+\usepackage{wasysym}
+% ------------------------------------------------
+
+% Code
+% https://tex.stackexchange.com/questions/99475/how-to-invoke-latex-with-the-shell-escape-flag-in-texstudio-former-texmakerx
+% Colored, requires --shell-escape compiling option
+% \usepackage{minted}
+% \setminted{xleftmargin=\parindent, autogobble, escapeinside=\#\#}
+\usepackage{listings}
+% ------------------------------------------------
+
+% Custom envs
+% https://tex.stackexchange.com/questions/371286/draw-a-horizontal-line-in-latex
+\newenvironment{proof}{\subparagraph{\hspace{-1em}Решение:\newline}}{\par\noindent\rule{\textwidth}{0.4pt}}
+% ------------------------------------------------
+
+% Custom commands
+\newcommand{\comb}[1]{\mathbf{#1}}
+\newcommand{\step}{\rightsquigarrow}
+\newcommand{\term}[1]{\mathbf{#1}}
+\newcommand{\ap}{~}
+\newcommand{\termdef}{\coloneqq}
+\newcommand{\subst}[3]{\left[#2 \mapsto #3 \right] #1}
+\newcommand{\eqbeta}{=_\beta}
+\newcommand{\eqeta}{=_\eta}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+% ------------------------------------------------
+
+% Head
+\usepackage{fancybox,fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\fancyhead[R]{Максим Васильев (285800)} % TODO введите ваше имя
+\fancyhead[L]{ИТМО MSE, ДМ 2023, Дз 9}
+% ------------------------------------------------
+
+% Numbering
+% https://tex.stackexchange.com/questions/80113/hide-section-numbers-but-keep-numbering
+\makeatletter
+\renewcommand\thesubsection{Блок \@arabic\c@subsection.\hspace{-0.8em}}
+\renewcommand\thesubsubsection{Задание \@arabic\c@subsection.\@arabic\c@subsubsection\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/327689/numbering-subsubsections-with-letters
+\renewcommand\theparagraph{\alph{paragraph})\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/129208/numbering-paragraphs-in-latex
+\setcounter{secnumdepth}{4}
+\makeatother
+% ------------------------------------------------
+
+\begin{document}
+\begin{enumerate}
+
+\item \textit{(1 балл)} Выясните, существует ли случайная величина $X$ такая, что $EX = 1$, $EX^2 = 2$, $EX^3 = 3$, $EX^4 = 4$ и $EX^5 = 5$.
+\item (2 балла) Паша кидает игральную кость и получает $X$ очков, где $X$ — число выпавших очков на кости. После этого Слава подкидывет монетку и получает $Y$ очков, где $Y = 0$, если выпал орел, и $Y = 2X$, если выпала решка. Вычислите коэффициент корреляции $r(X, Y)$.
+\item \textit{(2 балла)} На перрон станции метро каждые 5 минут приходит случайное число пассажиров, распределенное по закону Пуассона с параметром $\lambda = 250$. За то же время с перрона отправляются проходящие поезда, которые могут увезти количество пассажиров, имеющее равномерное распределение в промежутке $[195, 205]$. Можно ли рассчитывать, что перрон, вмещающий N человек, не переполнится, если такой режим поддерживается постоянно?
+\item \textit{(1 балл)} Пусть ${X_n}$ — последовательность независимых случайных величин, причем $X_k$ принимает значения $-2^k, -1, 1, 2^k$ с вероятностями $2^{-2k-1},\frac{1-2^{-2k}}{2},\frac{1-2^{-2k}}{2}, 2^{-2k-1}$ соответственно. Выполнен ли ЗБЧ для последовательности ${X_n}$?
+
+% \item \textit{(по 1 баллу за пункт)} Игральная кость подбрасывается до тех пор, пока общая сумма выпавших очков не превысит 700. Оцените вероятность того, что для этого потребуется 
+
+% а) более 210 бросаний;
+
+% б) менее 180 бросаний.
+
+% \item \textit{(2 балл)} При выстреле по мишени стрелок попадает в десятку с вероятностью 0.35, в девятку — 0.3, в восьмерку — 0.2, в семерку — 0.1, в шестерку — 0.05. Стрелок сделал 100 выстрелов. Какова вероятность того, что он набрал не менее 900 очков?
+
+\end{enumerate}
+\end{document}
