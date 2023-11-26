@@ -220,8 +220,22 @@ $r (X, Y) \approx 0.40161$
 
 \textbf{Решение}:
 
+Посчитаем моменты:
+\begin{equation}
+  \begin{cases}
+    \mathbb{E}X_k = -2^k \cdot 2^{-2k-1} -1 \cdot \frac{1-2^{-2k}}{2} + 1 \cdot \frac{1-2^{-2k}}{2} + 2^k \cdot 2^{-2k-1} = 0 \\
+    \mathbb{E}X_k^2 = (-2^k)^2 \cdot 2^{-2k-1} + (-1)^2 \cdot \frac{1-2^{-2k}}{2} + 1^2 \cdot \frac{1-2^{-2k}}{2} + (2^k)^2 \cdot 2^{-2k-1} = 2 - 2^{-2k}
+  \end{cases}
+\end{equation}
+Посчитаем дисперсию последовательности ${X_n}$:
+\begin{equation}
+  \mathbb{D}X_n = \mathbb{D}\sum_{k=1}^{n}X_k = \sum_{k=1}^{n}\mathbb{D}X_k = \sum_{k=1}^{n}(\mathbb{E}X_k^2 - (\mathbb{E}X_k)^2) \leq M,
+\end{equation}
+где $M \leq +\infty$. Поэтому для последовательности $X_n$
 
 \textbf{Ответ}:
+ЗБЧ выполнен.
+
 
 % \item \textit{(по 1 баллу за пункт)} Игральная кость подбрасывается до тех пор, пока общая сумма выпавших очков не превысит 700. Оцените вероятность того, что для этого потребуется 
 
