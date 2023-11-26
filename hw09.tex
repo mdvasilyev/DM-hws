@@ -102,10 +102,96 @@
 \begin{document}
 \begin{enumerate}
 
-\item \textit{(1 балл)} Выясните, существует ли случайная величина $X$ такая, что $EX = 1$, $EX^2 = 2$, $EX^3 = 3$, $EX^4 = 4$ и $EX^5 = 5$.
+\item \textit{(1 балл)} Выясните, существует ли случайная величина $X$ такая, что $\mathbb{E}X = 1$, $\mathbb{E}X^2 = 2$, $\mathbb{E}X^3 = 3$, $\mathbb{E}X^4 = 4$ и $\mathbb{E}X^5 = 5$.
+
+% \textbf{Решение}:
+
+% По определению мат. ожидание равно:
+% \begin{equation}
+%     \mathbb{E}X = \sum_{i} x_i \cdot p_i.
+% \end{equation}
+% В нашем случае должно выполняться следующее:
+% \begin{equation}
+%     \begin{cases}
+%         1=\mathbb{E}X = \sum_{i} x_i \cdot p_i, \\
+%         2=\mathbb{E}X^2 = \sum_{i} x_i^2 \cdot p_i, \\
+%         3=\mathbb{E}X^3 = \sum_{i} x_i^3 \cdot p_i, \\
+%         4=\mathbb{E}X^4 = \sum_{i} x_i^4 \cdot p_i, \\
+%         5=\mathbb{E}X^5 = \sum_{i} x_i^5 \cdot p_i.
+%     \end{cases}
+% \end{equation}
+
+% \textbf{Ответ}:
+
 \item (2 балла) Паша кидает игральную кость и получает $X$ очков, где $X$ — число выпавших очков на кости. После этого Слава подкидывет монетку и получает $Y$ очков, где $Y = 0$, если выпал орел, и $Y = 2X$, если выпала решка. Вычислите коэффициент корреляции $r(X, Y)$.
+
+\textbf{Решение}:
+
+Составим таблицу возможных исходов:
+\begin{center}
+  \begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+      % Определение таблицы размером 3 на 7 с произвольными значениями
+      \matrix (m) [matrix of nodes, nodes in empty cells,
+        nodes={draw, minimum size=1cm, anchor=center},
+        column sep=-\pgflinewidth, row sep=-\pgflinewidth]
+      {
+        Y{\textbackslash}X & 1 & 2 & 3 & 4 & 5 & 6 \\
+        0 & $\frac{1}{2}\frac{1}{6}$ & $\frac{1}{2}\frac{1}{6}$ & $\frac{1}{2}\frac{1}{6}$ & $\frac{1}{2}\frac{1}{6}$ & $\frac{1}{2}\frac{1}{6}$ & $\frac{1}{2}\frac{1}{6}$ \\
+        2 & $\frac{1}{2}\frac{1}{6}$ & 0 & 0 & 0 & 0 & 0 \\
+        4 & 0 & $\frac{1}{2}\frac{1}{6}$ & 0 & 0 & 0 & 0 \\
+        6 & 0 & 0 & $\frac{1}{2}\frac{1}{6}$ & 0 & 0 & 0 \\
+        8 & 0 & 0 & 0 & $\frac{1}{2}\frac{1}{6}$ & 0 & 0 \\
+        10 & 0 & 0 & 0 & 0 & $\frac{1}{2}\frac{1}{6}$ & 0 \\
+        12 & 0 & 0 & 0 & 0 & 0 & $\frac{1}{2}\frac{1}{6}$ \\
+      };
+    \end{tikzpicture}
+    \caption{Таблица исходов}
+  \end{figure}
+\end{center}
+Для вычисления коэффициента корреляции для начала нужно посчитать мат. ожидания, дисперсии и коэффициент ковариации:
+\begin{equation}
+  \begin{cases}
+    \mathbb{E}X = \sum_{i=1}^{6} x_i \cdot p_i = \frac{7}{2} \\
+    \mathbb{E}Y = \sum_{i=1}^{7} y_i \cdot p_i = 0 \cdot \frac{1}{2} + 2 \cdot \frac{1}{12} + 4 \cdot \frac{1}{12} + 6 \cdot \frac{1}{12} + 8 \cdot \frac{1}{12} + 10 \cdot \frac{1}{12} + 12 \cdot \frac{1}{12} = \frac{7}{2} \\
+    \mathbb{E}X^2 = \sum_{i=1}^{6} x_i^2 \cdot p_i = \frac{91}{6} \\
+    \mathbb{E}Y^2 = \sum_{i=1}^{7} y_i^2 \cdot p_i = 0^2 \cdot \frac{1}{2} + 2^2 \cdot \frac{1}{12} + 4^2 \cdot \frac{1}{12} + 6^2 \cdot \frac{1}{12} + 8^2 \cdot \frac{1}{12} + 10^2 \cdot \frac{1}{12} + 12^2 \cdot \frac{1}{12} = \frac{91}{3} \\
+    \mathbb{E}(XY) = 0 \cdot \frac{1}{2} + 2 \cdot \frac{1}{12} + 8 \cdot \frac{1}{12} + 18 \cdot \frac{1}{12} + 32 \cdot \frac{1}{12} + 50 \cdot \frac{1}{12} + 72 \cdot \frac{1}{12} = \frac{91}{6}
+  \end{cases}
+\end{equation}
+Теперь посчитаем дисперсии:
+\begin{equation}
+  \begin{cases}
+    \mathbb{D}X = \mathbb{E}X^2 - (\mathbb{E}X)^2 = \frac{35}{12} \\
+    \mathbb{D}Y = \mathbb{E}Y^2 - (\mathbb{E}Y)^2 = \frac{217}{12}
+  \end{cases}
+\end{equation}
+Теперь посчитаем ковариацию:
+\begin{equation}
+  cov (X, Y) = \mathbb{E}(XY) - \mathbb{E}X \cdot \mathbb{E}Y = \frac{91}{6} - \left(\frac{7}{2}\right)^2 = \frac{35}{12}
+\end{equation}
+И, наконец, коэффициент корреляции:
+\begin{equation}
+  r (X, Y) = \dfrac{cov (X, Y)}{\sqrt{\mathbb{D}X \cdot \mathbb{D}Y}} = \dfrac{35/12}{\sqrt{35/12 \cdot 217/12}} = \sqrt{\frac{5}{31}} \approx 0.40161
+\end{equation}
+
+\textbf{Ответ}:
+$r (X, Y) = \approx 0.40161$
+
 \item \textit{(2 балла)} На перрон станции метро каждые 5 минут приходит случайное число пассажиров, распределенное по закону Пуассона с параметром $\lambda = 250$. За то же время с перрона отправляются проходящие поезда, которые могут увезти количество пассажиров, имеющее равномерное распределение в промежутке $[195, 205]$. Можно ли рассчитывать, что перрон, вмещающий N человек, не переполнится, если такой режим поддерживается постоянно?
+
+\textbf{Решение}:
+
+
+\textbf{Ответ}:
+
 \item \textit{(1 балл)} Пусть ${X_n}$ — последовательность независимых случайных величин, причем $X_k$ принимает значения $-2^k, -1, 1, 2^k$ с вероятностями $2^{-2k-1},\frac{1-2^{-2k}}{2},\frac{1-2^{-2k}}{2}, 2^{-2k-1}$ соответственно. Выполнен ли ЗБЧ для последовательности ${X_n}$?
+
+\textbf{Решение}:
+
+
+\textbf{Ответ}:
 
 % \item \textit{(по 1 баллу за пункт)} Игральная кость подбрасывается до тех пор, пока общая сумма выпавших очков не превысит 700. Оцените вероятность того, что для этого потребуется 
 
