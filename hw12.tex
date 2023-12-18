@@ -139,7 +139,7 @@
     
     \begin{figure}[h]
         \centering
-        \includegraphics[width=0.2\textwidth]{images/12.5.png}
+        \includegraphics[width=0.35\textwidth]{images/12.5.png}
     \end{figure}
 
     \textbf{Решение}:
@@ -159,13 +159,52 @@
             4 & 4 & 1 & \{4, 4, 4, 1\} \\
             \hline
         \end{tabular}
-        \caption{Ваш заголовок таблицы}
-        \label{tab:your_label}
     \end{table}
     
     \textbf{Ответ}: \{4, 4, 4, 1\}.
 
     \item \textit{(0.5 балла)} Постройте дерево, отвечающее последовательности Прюфера $(1, 7, 2, 2, 2, 2)$.
+    
+    \textbf{Решение}:
+    
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Номер шага & Текущий код Прюфера & Доступные вершины & Ребра \\
+            \hline
+            1 & 1, 7, 2, 2, 2, 2 & 1, 2, 3, 4, 5, 6, 7, 8 & \\
+            \hline
+            2 & 7, 2, 2, 2, 2 & 1, 2, 4, 5, 6, 7, 8 & 1-3 \\
+            \hline
+            3 & 2, 2, 2, 2 & 2, 4, 5, 6, 7, 8 & 1-3, 1-7 \\
+            \hline
+            4 & 2, 2, 2 & 2, 5, 6, 7, 8 & 1-3, 1-7, 2-4 \\
+            \hline
+            5 & 2, 2 & 2, 6, 7, 8 & 1-3, 1-7, 2-4, 2-5 \\
+            \hline
+            6 & 2 & 2, 7, 8 & 1-3, 1-7, 2-4, 2-5, 2-6 \\
+            \hline
+            7 & & 2, 8 & 1-3, 1-7, 2-4, 2-5, 2-6, 2-7 \\
+            \hline
+            8 & & & 1-3, 1-7, 2-4, 2-5, 2-6, 2-7, 2-8 \\
+            \hline
+        \end{tabular}
+    \end{table}
+    \begin{tikzpicture}
+        % Вершины
+        \foreach \i/\angle in {1/45, 3/90, 4/135, 5/180, 6/225, 7/270} {
+          \node[circle, draw, fill=black, inner sep=2pt, label=above:$\i$] (\i) at (\angle:2) {};
+        }
+        % Центральная вершина 2
+        \node[circle, draw, fill=black, inner sep=2pt, label=above:$2$] (2) at (0,0) {};
+        \node[circle, draw, fill=black, inner sep=2pt, label=above:$8$] (8) at (0.7,0.7) {};
+        % Рёбра
+        \foreach \x/\y in {1/3, 1/7, 2/4, 2/5, 2/6, 2/7, 2/8} {
+          \draw (\x) -- (\y);
+        }
+    \end{tikzpicture}
+
     \item \textit{(1.5 балла)} Подсчитайте количество всех деревьев, построенных на множестве вершин $[n]$, у которых вершина с меткой $i$ имеет степень $d_i$. Выведите отсюда формулу Кэли для количества всех деревьев на n вершинах.
 \end{enumerate}
 \end{document}
